@@ -1,6 +1,6 @@
 import { Button } from '@/components/ui/button';
-import { Github, Linkedin, ExternalLink } from 'lucide-react';
-import profilePhoto from '@/assets/profile-photo.png';
+import { Github, Linkedin, ExternalLink, Download } from 'lucide-react';
+import profilePhoto from '@/assets/profile-photo.jpg';
 
 const HeroSection = () => {
   return (
@@ -44,6 +44,12 @@ const HeroSection = () => {
               </Button>
               <Button variant="heroOutline" size="lg" asChild>
                 <a href="#contact">Contact Me</a>
+              </Button>
+              <Button variant="outline" size="lg" asChild>
+                <a href="/LohitCV.pdf" download>
+                  <Download size={18} className="mr-2" />
+                  Download CV
+                </a>
               </Button>
             </div>
 
