@@ -1,5 +1,6 @@
 import { Award, ExternalLink, Cloud, Users, Server } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import ScrollReveal from './ScrollReveal';
 
 const certifications = [
   {
@@ -30,42 +31,45 @@ const CertificationsSection = () => {
     <section id="certifications" className="relative bg-card">
       <div className="section-container">
         {/* Section Header */}
-        <div className="text-center mb-16">
-          <p className="text-accent font-semibold mb-2">Validated Skills</p>
-          <h2 className="section-title">Certifications</h2>
-          <p className="section-subtitle mx-auto mt-4">
-            Professional certifications demonstrating expertise and commitment to growth
-          </p>
-        </div>
+        <ScrollReveal>
+          <div className="text-center mb-16">
+            <p className="text-accent font-semibold mb-2">Validated Skills</p>
+            <h2 className="section-title">Certifications</h2>
+            <p className="section-subtitle mx-auto mt-4">
+              Professional certifications demonstrating expertise and commitment to growth
+            </p>
+          </div>
+        </ScrollReveal>
 
         {/* Certifications Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {certifications.map((cert, index) => (
-            <div
-              key={cert.title}
-              className="group p-6 bg-secondary rounded-xl border border-border hover:border-primary/50 transition-all duration-300 hover:shadow-lg"
-            >
-              {/* Icon */}
-              <div className="w-12 h-12 rounded-lg bg-accent/10 flex items-center justify-center mb-4 group-hover:bg-accent/20 transition-colors">
-                <cert.icon className="text-accent" size={24} />
+            <ScrollReveal key={cert.title} direction="scale" delay={index * 100}>
+              <div
+                className="group p-6 bg-secondary rounded-xl border border-border hover:border-primary/50 transition-all duration-300 hover:shadow-lg h-full"
+              >
+                {/* Icon */}
+                <div className="w-12 h-12 rounded-lg bg-accent/10 flex items-center justify-center mb-4 group-hover:bg-accent/20 transition-colors">
+                  <cert.icon className="text-accent" size={24} />
+                </div>
+
+                {/* Content */}
+                <h3 className="font-semibold font-display text-foreground mb-2 leading-snug">
+                  {cert.title}
+                </h3>
+                <p className="text-sm text-primary font-medium mb-2">{cert.organization}</p>
+                <p className="text-sm text-muted-foreground mb-4">{cert.description}</p>
+
+                {/* View Button */}
+                <Button variant="ghost" size="sm" className="group/btn" asChild>
+                  <a href={cert.certificateUrl} target="_blank" rel="noopener noreferrer">
+                    <Award size={16} />
+                    View Certificate
+                    <ExternalLink size={14} className="ml-1 opacity-0 group-hover/btn:opacity-100 transition-opacity" />
+                  </a>
+                </Button>
               </div>
-
-              {/* Content */}
-              <h3 className="font-semibold font-display text-foreground mb-2 leading-snug">
-                {cert.title}
-              </h3>
-              <p className="text-sm text-primary font-medium mb-2">{cert.organization}</p>
-              <p className="text-sm text-muted-foreground mb-4">{cert.description}</p>
-
-              {/* View Button */}
-              <Button variant="ghost" size="sm" className="group/btn" asChild>
-                <a href={cert.certificateUrl} target="_blank" rel="noopener noreferrer">
-                  <Award size={16} />
-                  View Certificate
-                  <ExternalLink size={14} className="ml-1 opacity-0 group-hover/btn:opacity-100 transition-opacity" />
-                </a>
-              </Button>
-            </div>
+            </ScrollReveal>
           ))}
         </div>
       </div>
