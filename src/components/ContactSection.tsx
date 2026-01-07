@@ -76,8 +76,8 @@ const ContactSection = () => {
         'service_n3w5ovn',
         'template_99sb61e',
         {
-          from_name: formData.name,
-          from_email: formData.email,
+          name: formData.name,
+          email: formData.email,
           subject: formData.subject || 'No Subject',
           message: formData.message,
         },
