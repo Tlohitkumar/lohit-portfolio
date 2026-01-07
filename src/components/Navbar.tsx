@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Menu, X } from 'lucide-react';
+import profilePhoto from '@/assets/profile-photo.jpg';
 
 const navLinks = [
   { name: 'Home', href: '#home' },
@@ -35,8 +36,15 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
-          <a href="#home" className="font-display text-xl font-bold text-foreground">
-            LOHIT<span className="text-accent">.dev</span>
+          <a href="#home" className="flex items-center gap-2">
+            <img 
+              src={profilePhoto} 
+              alt="Lohit Kumar" 
+              className="w-8 h-8 rounded-full object-cover ring-2 ring-accent/50"
+            />
+            <span className="font-display text-xl font-bold text-foreground">
+              LOHIT<span className="text-accent">.dev</span>
+            </span>
           </a>
 
           {/* Desktop Navigation */}
